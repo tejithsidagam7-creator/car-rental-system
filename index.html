@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wayfare makes thoughtful car rental simple.">
+    <title>Wayfare | Car rental, considered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="Wayfare home">wayfare<span>.</span></a>
+        <nav aria-label="Main navigation"><a class="active" href="index.html">Discover</a><a href="fleet.html">Our fleet</a><a href="story.html">Our story</a></nav>
+        <div class="header-actions"><button class="text-button" onclick="openLogin()">Sign in <span aria-hidden="true">↗</span></button><button class="menu-toggle" onclick="toggleNavigation()" aria-label="Open navigation" aria-expanded="false">Menu</button></div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-copy reveal"><p class="eyebrow">Car rental, considered</p><h1>Go somewhere<br><em>worth going.</em></h1><p class="hero-intro">Beautifully maintained cars, thoughtfully priced, and ready when you are.</p></div>
+            <div class="hero-image-wrap reveal delay-one"><img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=1400&q=85" alt="White car parked on a scenic road"><span class="image-note">The open road<br><strong>starts here.</strong></span></div>
+        </section>
+        <section class="search-section" aria-label="Search available cars"><div class="search-heading"><p class="eyebrow">Find your way</p><h2>Where to next?</h2></div><div class="search-box"><label><span>Pick-up location</span><input type="text" id="location" placeholder="City or airport"></label><label><span>Pick-up date</span><input type="date" id="pickupDate"></label><label><span>Return date</span><input type="date" id="returnDate"></label><button class="dark-button" onclick="searchCars()">Search cars <span aria-hidden="true">→</span></button></div></section>
+        <section class="fleet-section" id="cars"><div class="section-header"><div><p class="eyebrow">Our fleet</p><h2>Made for the moment.</h2></div><p>From quick city escapes to long weekends away, find a car that fits the plan.</p></div><div class="cars-container">
+            <article class="car-card featured-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=85" alt="Modern silver sedan"></div><div class="car-details"><div class="card-top"><span class="tag">Most popular</span><span class="availability">● Available</span></div><h3>Polestar 2</h3><p>Electric sedan <span>·</span> 5 seats</p><div class="card-bottom"><div class="price">$84 <small>/ day</small></div><button class="round-button" onclick="openBooking('Polestar 2', 84)" aria-label="Book Polestar 2">↗</button></div></div></article>
+            <article class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=85" alt="Black compact car in a city"></div><div class="car-details"><div class="card-top"><span class="tag muted">City pick</span><span class="availability">● Available</span></div><h3>Mini Cooper</h3><p>Compact <span>·</span> 4 seats</p><div class="card-bottom"><div class="price">$56 <small>/ day</small></div><button class="round-button" onclick="openBooking('Mini Cooper', 56)" aria-label="Book Mini Cooper">↗</button></div></div></article>
+            <article class="car-card"><div class="car-img"><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1200&q=85" alt="Dark SUV on a road"></div><div class="car-details"><div class="card-top"><span class="tag muted">Weekend ready</span><span class="availability">● Available</span></div><h3>Range Rover Evoque</h3><p>SUV <span>·</span> 5 seats</p><div class="card-bottom"><div class="price">$112 <small>/ day</small></div><button class="round-button" onclick="openBooking('Range Rover Evoque', 112)" aria-label="Book Range Rover Evoque">↗</button></div></div></article>
+        </div></section>
+        <section class="promise" id="about"><div><p class="eyebrow">The Wayfare promise</p><h2>Good journeys<br><em>feel effortless.</em></h2></div><div class="promise-copy"><p>We take care of the details so you can stay present for the good part. No hidden fees, no long queues, no compromises.</p><div class="promise-list"><span>01 <b>Simple pricing</b></span><span>02 <b>Flexible pickups</b></span><span>03 <b>Always cared for</b></span></div></div></section>
+    </main>
+    <footer><a class="logo" href="#home">wayfare<span>.</span></a><p>Cars for the places you'll remember.</p><p class="footer-right">© 2026 Wayfare · <a href="mailto:hello@wayfare.co">hello@wayfare.co</a></p></footer>
+    <div class="modal" id="bookingModal"><div class="modal-box"><button class="close" onclick="closeBooking()" aria-label="Close booking">×</button><p class="eyebrow">Reserve your ride</p><h2 id="carName">Book your car</h2><div class="form-grid"><input type="text" id="customerName" placeholder="Full name"><input type="email" id="customerEmail" placeholder="Email address"><input type="tel" id="customerPhone" placeholder="Phone number"><input type="date" id="bookPickup"><input type="date" id="bookReturn"></div><button class="dark-button full-button" onclick="confirmBooking()">Confirm booking <span>→</span></button><div id="bookingMessage"></div></div></div>
+    <div class="modal" id="loginModal"><div class="modal-box small-modal"><button class="close" onclick="closeLogin()" aria-label="Close login">×</button><p class="eyebrow">Welcome back</p><h2>Sign in to Wayfare</h2><input type="email" id="loginEmail" placeholder="Email address"><input type="password" id="loginPassword" placeholder="Password"><button class="dark-button full-button" onclick="login()">Sign in <span>→</span></button><p id="loginMessage"></p></div></div>
+    <script src="script.js"></script>
+</body>
+</html>
