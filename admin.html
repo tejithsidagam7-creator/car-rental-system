@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wayfare admin management panel.">
+    <title>Admin panel | Wayfare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="Wayfare home">wayfare<span>.</span></a>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Discover</a>
+            <a href="fleet.html">Our fleet</a>
+            <a href="story.html">Our story</a>
+            <a class="active" href="admin.html">Admin</a>
+        </nav>
+        <div class="header-actions">
+            <a class="text-button" href="index.html">Back to site <span aria-hidden="true">↗</span></a>
+            <button class="menu-toggle" onclick="toggleNavigation()" aria-label="Open navigation" aria-expanded="false">Menu</button>
+        </div>
+    </header>
+
+    <main class="admin-shell">
+        <section id="adminLoginCard" class="admin-card">
+            <p class="eyebrow">Restricted access</p>
+            <h1>Admin portal</h1>
+            <form id="adminLoginForm" class="admin-form">
+                <input id="adminUsername" type="text" placeholder="Username" required>
+                <input id="adminPassword" type="password" placeholder="Password" required>
+                <button class="dark-button" type="submit">Log in <span aria-hidden="true">→</span></button>
+                <p id="adminLoginMessage" class="admin-message"></p>
+            </form>
+        </section>
+
+        <section id="adminDashboard" class="admin-dashboard hidden">
+            <div class="admin-topbar">
+                <h2>Control center</h2>
+                <button id="adminLogoutButton" type="button">Logout</button>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-panel">
+                    <h2>Add a user</h2>
+                    <form id="userForm" class="stack-form">
+                        <input id="userName" type="text" placeholder="Full name" required>
+                        <input id="userUsername" type="text" placeholder="Username" required>
+                        <input id="userEmail" type="email" placeholder="Email address" required>
+                        <input id="userPassword" type="password" placeholder="Password" required>
+                        <button class="dark-button" type="submit">Add user <span aria-hidden="true">→</span></button>
+                    </form>
+                </div>
+
+                <div class="admin-panel">
+                    <h2>Manage users</h2>
+                    <ul id="userList" class="data-list"></ul>
+                </div>
+
+                <div class="admin-panel">
+                    <h2>Add a car</h2>
+                    <form id="carForm" class="stack-form">
+                        <input id="carNameInput" type="text" placeholder="Car name" required>
+                        <input id="carPrice" type="number" min="1" placeholder="Daily rate" required>
+                        <input id="carCategory" type="text" placeholder="Category" required>
+                        <input id="carSeats" type="number" min="1" placeholder="Seats" required>
+                        <input id="carImage" type="url" placeholder="Car image URL (optional)">
+                        <button class="dark-button" type="submit">Add car <span aria-hidden="true">→</span></button>
+                    </form>
+                </div>
+
+                <div class="admin-panel">
+                    <h2>Manage cars</h2>
+                    <ul id="carList" class="data-list"></ul>
+                    <button id="resetDemoData" class="dark-button" type="button" style="margin-top: 18px; width: 100%;">Reset demo data <span aria-hidden="true">→</span></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a class="logo" href="index.html">wayfare<span>.</span></a>
+        <p>Cars for the places you'll remember.</p>
+        <p class="footer-right">© 2026 Wayfare · <a href="mailto:hello@wayfare.co">hello@wayfare.co</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
